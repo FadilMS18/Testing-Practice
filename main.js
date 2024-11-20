@@ -21,7 +21,47 @@ const calculator = {
     multiply: (a, b) => a * b,
     divide: (a, b) => parseInt(a / b)
 }
+console.clear()
 
-console.log(10 / 3)
 
-export {show, capitalize, reverse, calculator}
+function chiperShift(str, shift = 3){
+    let alphabet = ('abcdefghijklmnopqrstuvwxyz')
+    let encrypted = ''
+    for(let i = 0; i < str.length; i++){
+        let current = str.charAt(i)
+        let index;
+        if(current == current.toUpperCase()){
+            index = alphabet.indexOf(current.toLowerCase())
+            if(index < 0){
+                encrypted += str.charAt(i)
+                continue;
+            }
+            encrypted += alphabet[(index + shift) % 26].toUpperCase()
+            continue;
+        }
+        index = alphabet.indexOf(str.charAt(i))
+        encrypted += alphabet[(index + shift) % 26]
+    }
+    return encrypted
+}
+
+// shorter version of Caesar Chiper
+// function chiperShift(str, shift = 3){
+//     let alphabet = ('abcdefghijklmnopqrstuvwxyz')
+//     let encrypted = ''
+//     for(let i = 0; i < str.length; i++){
+//         let current = str[i]
+//         let isUpperCase = current === current.toUpperCase()
+//         let index = alphabet.indexOf(current.toLowerCase())
+//         if(index < 0){
+//             encrypted += str.charAt(i)
+//             continue;
+//         }
+//         encrypted += isUpperCase 
+//         ? alphabet[(index + shift) % 26].toUpperCase() 
+//         : alphabet[([index + shift]) % 26]
+//     }
+//     return encrypted
+// }
+
+export {show, capitalize, reverse, calculator, chiperShift}
