@@ -64,4 +64,20 @@ function chiperShift(str, shift = 3){
 //     return encrypted
 // }
 
-export {show, capitalize, reverse, calculator, chiperShift}
+function analyzeArray(array){
+    let average = 0;
+    for(let i = 0; i < array.length; i++){
+        average += array[i]
+    }
+    average = parseFloat((average / array.length).toFixed(2))
+    return {
+        min: array[0],
+        max: array[array.length - 1 ],
+        length: array.length,
+        average,
+    }
+}
+console.log(analyzeArray([1,2,3,4,5]))
+
+
+export {show, capitalize, reverse, calculator, chiperShift, analyzeArray}
