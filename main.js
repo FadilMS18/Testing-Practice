@@ -66,16 +66,12 @@ function chiperShift(str, shift = 3){
 
 function analyzeArray(array){
     let sorted = array.sort((a, b) => a - b)
-    let average = 0;
-    for(let i = 0; i < sorted.length; i++){
-        average += sorted[i]
-    }
-    average = parseFloat((average / sorted.length).toFixed(2))
+    let average = sorted.reduce((total, cur) => total + cur, 0) / sorted.length
     return {
         min: sorted[0],
         max: sorted[sorted.length - 1 ],
         length: sorted.length,
-        average,
+        average : parseFloat(average.toFixed(2)),
     }
 }
 
