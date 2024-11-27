@@ -65,19 +65,19 @@ function chiperShift(str, shift = 3){
 // }
 
 function analyzeArray(array){
+    let sorted = array.sort((a, b) => a - b)
     let average = 0;
-    for(let i = 0; i < array.length; i++){
-        average += array[i]
+    for(let i = 0; i < sorted.length; i++){
+        average += sorted[i]
     }
-    average = parseFloat((average / array.length).toFixed(2))
+    average = parseFloat((average / sorted.length).toFixed(2))
     return {
-        min: array[0],
-        max: array[array.length - 1 ],
-        length: array.length,
+        min: sorted[0],
+        max: sorted[sorted.length - 1 ],
+        length: sorted.length,
         average,
     }
 }
-console.log(analyzeArray([1,2,3,4,5]))
 
 
 export {show, capitalize, reverse, calculator, chiperShift, analyzeArray}

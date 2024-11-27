@@ -97,6 +97,6 @@ test('function will return the average number and min max also the length of an 
 // TODO make a tweak in the function that unsorted array will also work  
 test('function will work with unsorted array too', ()=>{
     expect(analyzeArray([1, 8, 3, 4, 2, 6])).toMatchObject({min:1, max:8, length:6, average:4})
-    expect(analyzeArray([20, 1, 30, 5, 8])).toMatchObject({min: 1, max:30, length:8})
+    expect(analyzeArray([20, 1, 30, 5, 8])).toMatchObject({min: 1, max:30, length: 5})
     expect(analyzeArray([20, 1, 30, 5, 8])).toMatchObject({average: averageCheck([20, 1, 30, 5, 8])})
 })
